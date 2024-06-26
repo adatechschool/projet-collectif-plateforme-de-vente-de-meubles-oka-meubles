@@ -11,7 +11,7 @@ const Navbar = () => {
                 <ul className="flex">
                     <li className="p-4">Accueil</li>
                     <li className="p-4"><img src={panier} className="lmj-panier"/>Panier</li>
-                    <li className="p-4 "><img src={compte} className="lmj-compte"/>Compte</li>
+                    <li  className="p-4"><img src={compte} className="lmj-compte"/>Compte</li>
                 </ul>
             </div>
         </div>
