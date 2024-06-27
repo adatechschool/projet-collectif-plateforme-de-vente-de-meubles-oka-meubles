@@ -3,7 +3,7 @@
 const express = require("express");
 const sequelize = require('./config/sequelize');
 const User = require('./models/user.model'); // Adjust the path as necessary
-const Item = require('./models/items.model'); // Adjust the path as necessary
+const Item = require('./models/item.model'); // Adjust the path as necessary
 const Basket = require('./models/basket.model'); // Adjust the path as necessary
 const userRoutes = require('./routes/user.routes');
 const itemRoutes = require('./routes/item.routes');

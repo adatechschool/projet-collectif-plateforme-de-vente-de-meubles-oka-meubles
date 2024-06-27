@@ -1,6 +1,6 @@
 // server/controllers/basket.controller.js
 
-const Item = require('../models/basket.model');
+const Basket = require('../models/basket.model');
 
 const createBasket = async (req, res) => {
     const {  } = req.body;
