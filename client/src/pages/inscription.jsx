@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import {useState } from "react";
+import Footer from "../components/footer";
 
 const Inscription=()=>{
         const handleSubmit=(e)=>{
@@ -41,6 +42,7 @@ const Inscription=()=>{
             <button disabled={!checked} className="ml-60 mt-4 bg-[#CED6C1] p-2 rounded-md hover:border border-[#242A21]">Envoyer</button>
         </form>
         </div>
+        <Footer/>
         </>
     )
 }

@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -14,11 +16,13 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+       <Navbar/>
+    
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Chargement..." : data}</p>
       </header>
+      <Footer />
     </div>
   );
 }
