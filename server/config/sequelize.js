@@ -2,7 +2,7 @@
 
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('OKA_projet', 'postgres', 'Bazzinga321@', {
+const sequelize = new Sequelize('OKA_projet', 'postgres', 'ileana', {
     host: 'localhost',
     dialect: 'postgres'
 });

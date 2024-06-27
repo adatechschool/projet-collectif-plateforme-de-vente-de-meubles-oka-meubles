@@ -5,7 +5,10 @@ const sequelize = require('./config/sequelize');
 const User = require('./models/user.model'); // Adjust the path as necessary
 const Item = require('./models/items.model'); // Adjust the path as necessary
 const Basket = require('./models/basket.model'); // Adjust the path as necessary
-const userRoutes = require('./routes/user.routes')
+const userRoutes = require('./routes/user.routes');
+const itemRoutes = require('./routes/item.routes');
+const basketRoutes = require('./routes/item.routes');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,6 +18,7 @@ app.get("/api", (req, res) => {
 });
 
 app.use(express.json());
+app.use('/api', itemRoutes);
 app.use('/api', userRoutes);
 
 sequelize.sync()

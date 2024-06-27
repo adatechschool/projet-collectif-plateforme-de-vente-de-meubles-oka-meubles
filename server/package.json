@@ -4,7 +4,7 @@
   "description": "projet-collectif-plateforme-de-vente-de-meubles-oka-meubles created by GitHub Classroom",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "",
