@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./components/navbar";
+
+import Navbar from './components/navbar';
+import Formco from "./components/formco";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -14,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Navbar />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
