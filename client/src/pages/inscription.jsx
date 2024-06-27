@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import {useState } from "react";
+import Footer from "../components/footer";
 import MeubleInscription from '../assets/meubleInscription1.jpg'
 
 const Inscription=()=>{
@@ -38,6 +39,7 @@ const Inscription=()=>{
                 </form>
             </div>
         </div>
+        <Footer/>
         </>
     )
 }
