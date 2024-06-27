@@ -4,6 +4,7 @@ import "./App.css";
 
 
 import Navbar from './components/navbar';
+import Formco from "./components/formco";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
     <div className="App">
        <Navbar/>
+       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
