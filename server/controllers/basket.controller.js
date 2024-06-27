@@ -6,7 +6,7 @@ const createBasket = async (req, res) => {
     const {  } = req.body;
 
     try {
-        const newBasket = await Item.create({
+        const newBasket = await Basket.create({
             
         });
 

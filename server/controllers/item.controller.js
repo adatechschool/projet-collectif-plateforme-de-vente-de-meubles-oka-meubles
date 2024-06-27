@@ -32,9 +32,25 @@ const getAllItem = async (req, res) => {
     }
 };
 
+const getItemById = async (req, res) => {
+    const itemId = req.params.id ;
+    try {
+        const item = await Item.findByPk(itemId);
+     
+            if (!item) {
+                return res.status(404).json({error: "item not found ! "})
+            } 
+        
+        res.status(200).json(item);
+
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
 
 module.exports = {
     createItem,
-    getAllItem
+    getAllItem,
+    getItemById
 };
 

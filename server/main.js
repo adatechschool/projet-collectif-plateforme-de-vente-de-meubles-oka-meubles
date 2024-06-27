@@ -7,7 +7,7 @@ const Item = require('./models/item.model'); // Adjust the path as necessary
 const Basket = require('./models/basket.model'); // Adjust the path as necessary
 const userRoutes = require('./routes/user.routes');
 const itemRoutes = require('./routes/item.routes');
-const basketRoutes = require('./routes/item.routes');
+const basketRoutes = require('./routes/basket.routes');
 
 
 const PORT = process.env.PORT || 3001;
@@ -20,6 +20,7 @@ app.get("/api", (req, res) => {
 app.use(express.json());
 app.use('/api', itemRoutes);
 app.use('/api', userRoutes);
+app.use('/api', basketRoutes);
 
 sequelize.sync()
     .then(() => {
