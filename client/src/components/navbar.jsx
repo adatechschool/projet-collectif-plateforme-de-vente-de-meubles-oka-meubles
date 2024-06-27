@@ -1,7 +1,9 @@
 import React from "react"
 import compte from '../assets/compte.png';
 import meubles from '../assets/meubles.png';
-import panier from '../assets/panier.png'
+import panier from '../assets/panier.png';
+
+
 
 const Navbar = () => {
     return (
