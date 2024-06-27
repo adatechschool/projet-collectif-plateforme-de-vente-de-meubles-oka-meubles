@@ -1,10 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
-
-import Navbar from './components/navbar';
-
+import Navbar from "./components/navbar";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -16,12 +13,11 @@ function App() {
   }, []);
 
   return (
-
     <div className="App">
-       <Navbar/>
+      <Navbar />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
+        <p>{!data ? "Chargement..." : data}</p>
       </header>
     </div>
   );
