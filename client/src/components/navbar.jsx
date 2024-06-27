@@ -17,15 +17,10 @@ const Navbar = () => {
                 <ul className="flex">
                     <li className="p-4"><img src={panier} className="lmj-panier"/>Panier</li>
                     <li className="p-4 "><img src={compte} className="lmj-compte"/><button onClick={togglePop}>Compte</button>
-                    {seen ? <Formco toggle={togglePop} /> : null} </li>
-            
-                    
                 </ul>
             </div>
         </div>
     )
 }
-
-
 
 export default Navbar
