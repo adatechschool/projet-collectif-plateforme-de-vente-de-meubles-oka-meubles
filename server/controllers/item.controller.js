@@ -48,9 +48,23 @@ const getItemById = async (req, res) => {
     }
 };
 
+const deleteById = async (req, res) => {
+    const itemId = req.params.id ;
+    try{
+        await Item.destroy({
+            where: { id : parseInt(itemId) }
+        });
+        res.status(204).json({ message: "item deleted successfully" });
+    
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+}
+
 module.exports = {
     createItem,
     getAllItem,
-    getItemById
+    getItemById,
+    deleteById
 };
 
