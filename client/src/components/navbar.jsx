@@ -5,6 +5,7 @@ import panier from '../assets/panier.png';
 import Formco from "./formco";
 
 
+
 const Navbar = () => {
      const [seen, setSeen] = useState(false)
 
@@ -16,7 +17,8 @@ const Navbar = () => {
             <div className="flex justify-end bg-[#CED6C1]">
                 <ul className="flex">
                     <li className="p-4"><img src={panier} className="lmj-panier"/>Panier</li>
-                    <li className="p-4 "><img src={compte} className="lmj-compte"/><button onClick={togglePop}>Compte</button>
+                    <li className="p-4"><img src={compte} className="lmj-compte"/><button onClick={togglePop}>Compte</button>
+                    {seen ? <Formco toggle={togglePop} /> : null}</li>
                 </ul>
             </div>
         </div>
