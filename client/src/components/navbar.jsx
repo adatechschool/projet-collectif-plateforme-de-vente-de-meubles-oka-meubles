@@ -6,12 +6,12 @@ import panier from '../assets/panier.png'
 const Navbar = () => {
     return (
             <div className="flex justify-between items-center bg-[#CED6C1] gap-90 content-end ">
-                <img src={meubles} className="lmj-meubles flex justify-start" />
+                <img src={meubles} className="lmj-meubles flex justify-start" alt="meuble" />
             <div className="flex justify-end bg-[#CED6C1]">
                 <ul className="flex">
                     <li className="p-4">Accueil</li>
-                    <li className="p-4"><img src={panier} className="lmj-panier"/>Panier</li>
-                    <li  className="p-4"><img src={compte} className="lmj-compte"/>Compte</li>
+                    <li className="p-4"><img src={panier} className="lmj-panier" alt="panier" />Panier</li>
+                    <li  className="p-4"><img src={compte} className="lmj-compte" alt="compte" />Compte</li>
                 </ul>
             </div>
         </div>
