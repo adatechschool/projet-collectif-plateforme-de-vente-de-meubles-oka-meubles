@@ -1,0 +1,16 @@
+{
+  "name": "projet-collectif-plateforme-de-vente-de-meubles-oka-meubles",
+  "version": "1.0.0",
+  "description": "projet-collectif-plateforme-de-vente-de-meubles-oka-meubles created by GitHub Classroom",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
