@@ -7,6 +7,8 @@ const PagePanier = () => {
     return (
         
         <div className= 'bg-[#CED6C1]'>
+   
+
             <div >
                 <p className="text-center">VOTRE PANIER</p>
             </div>

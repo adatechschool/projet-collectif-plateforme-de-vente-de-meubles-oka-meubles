@@ -5,6 +5,11 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Inscription from "./pages/inscription";
+import PagePanier from "./components/panier";
+import Cgv from "./pages/cgv";
+import MentionsLegales from "./pages/mentions-legales";
+import Contact from "./pages/contact";
+
 
 const router = createBrowserRouter([
   {
@@ -14,6 +19,23 @@ const router = createBrowserRouter([
   {
     path: "inscription",
     element: <Inscription />,
+    
+  },
+  {
+    path: "cgv",
+    element: <Cgv />,
+  },
+  {
+    path: "mentions-legales",
+    element: <MentionsLegales />,
+  },
+  {
+    path: "contact",
+    element: <Contact />,
+  },
+  {
+    path: "Panier",
+    element: <PagePanier />,
   },
 ]);
 
