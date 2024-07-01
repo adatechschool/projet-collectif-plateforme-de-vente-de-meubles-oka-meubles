@@ -13,12 +13,14 @@ const Navbar = () => {
         setSeen(!seen);}
     return (
             <div className="flex justify-between items-center bg-[#CED6C1] gap-90 content-end ">
-                <img src={meubles} className="lmj-meubles flex justify-start" />
+                <img src={meubles} className="lmj-meubles flex justify-start" alt="meuble" />
             <div className="flex justify-end bg-[#CED6C1]">
                 <ul className="flex">
-                    <li className="p-4"><img src={panier} className="lmj-panier"/>Panier</li>
-                    <li className="p-4"><img src={compte} className="lmj-compte"/><button onClick={togglePop}>Compte</button>
+
+                    <li className="p-4"><img src={panier} className="lmj-panier" alt="panier"/>Panier</li>
+                    <li className="p-4"><img src={compte} className="lmj-compte" alt="compte"/><button onClick={togglePop}>Compte</button>
                     {seen ? <Formco toggle={togglePop} /> : null}</li>
+
                 </ul>
             </div>
         </div>
