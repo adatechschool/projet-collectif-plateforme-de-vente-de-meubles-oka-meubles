@@ -1,5 +1,6 @@
-import React from "react"
+import React from "react";
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 const Formco = (props) =>{
     const [email, setEmail] = useState('')
@@ -28,7 +29,6 @@ const Formco = (props) =>{
                     <label className="text-lg font-medium mr-2">
                         Password
                         </label>
-                        
                         <input 
                         className="w-60 border-2 border-gray-600 rounded-xl p-1 mt-2 bg-transparent mr-7"
                         type="password" 
@@ -38,7 +38,7 @@ const Formco = (props) =>{
                    <br></br>
                     <button className="active:scale-[.80] hover:scale-[1.05] ease-in-out text-2xl ml-7 font-semibold text-red-300 border-gray-600 bg-[#CED6C1] rounded-2xl mt-4 p-2" type="submit">Connexion</button>
                 </form>
-                <p>Vous n'avez pas de compte ? <button className=" text-red-300 mt-4">Inscrivez-Vous</button></p>
+                <p>Vous n'avez pas de compte ? <button className=" text-red-300 mt-4"><Link to ="/inscription">Inscrivez-Vous</Link></button></p>
                 <button className="text-red-300">Mot de passe oublié ?</button>
                
             </div>
