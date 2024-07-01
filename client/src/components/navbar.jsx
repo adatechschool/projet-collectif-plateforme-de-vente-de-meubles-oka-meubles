@@ -3,6 +3,7 @@ import compte from '../assets/compte.png';
 import meubles from '../assets/meubles.png';
 import panier from '../assets/panier.png';
 import Formco from "./formco";
+import {Link} from "react-router-dom";
 
 
 
@@ -17,7 +18,7 @@ const Navbar = () => {
             <div className="flex justify-end bg-[#CED6C1]">
                 <ul className="flex">
 
-                    <li className="p-4"><img src={panier} className="lmj-panier" alt="panier"/>Panier</li>
+                    <li className="p-4"><Link to='/panier'><img src={panier} className="lmj-panier" alt="panier"/>Panier </Link></li>
                     <li className="p-4"><img src={compte} className="lmj-compte" alt="compte"/><button onClick={togglePop}>Compte</button>
                     {seen ? <Formco toggle={togglePop} /> : null}</li>
 
