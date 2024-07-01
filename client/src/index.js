@@ -5,6 +5,8 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Inscription from "./pages/inscription";
+import PagePanier from "./components/panier";
+
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "inscription",
     element: <Inscription />,
+  },
+  {
+    path: "Panier",
+    element: <PagePanier />,
   },
 ]);
 
