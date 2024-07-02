@@ -4,6 +4,9 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Formco from "./components/formco";
+import Homepage from "./pages/homepage";
+import background from "./assets/background.jpg"
+
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -15,15 +18,18 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <>
+    <main>
+    <Navbar/>
+      
+        
+        <Homepage/>
 
-      <Navbar />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Chargement..." : data}</p>
-      </header>
-      <Footer />
-    </div>
+
+      
+    <Footer/>
+    </main>
+    </>
   );
 }
 
