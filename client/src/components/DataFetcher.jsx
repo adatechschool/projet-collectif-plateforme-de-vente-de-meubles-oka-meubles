@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MeubleItem from './meubleItem';
 
 const DataFetcher = () => {
   const [data, setData] = useState([]);
@@ -28,11 +29,16 @@ const DataFetcher = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
-      <h1>Fetched Data</h1>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>{item.name}</li>
+    <div className='pt-20'>
+      <h1>Carte meuble</h1>
+      <ul  className="grid grid-cols-3 gap-2 gap-y-20 flex items-center justify-items-center text-center">
+        {data.map((val, id) => (
+          <MeubleItem
+          key={id}
+          image={val.image}
+          name={val.name}
+          price={val.price}
+          />
         ))}
       </ul>
     </div>
@@ -41,32 +47,7 @@ const DataFetcher = () => {
 
 export default DataFetcher;
     
-// class Items extends Component {
-//     state = {
-//         post:{}
-//     }
-    
-//     getItems() {
-//         fetch("http://localhost:3001/api/items")
-//         .then((response) => {
-//             return response.json()
-//         })
-//         .then((result) => {
-//             this.setState({post : result})
-//             console.log(result);
-//         })
-//     }
-        
-//     render () {
-//         return (
-//             <div className= "">
-//                 <h1>Yo</h1>
-//                 {this.state.post.name}
 
-//             </div>
-//         )
-//     }
-// }
 
 
 
