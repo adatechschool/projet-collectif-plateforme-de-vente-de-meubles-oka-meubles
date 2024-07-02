@@ -4,14 +4,16 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Formco from "./components/formco";
-import Homepage from "./pages/homepage";
+import Homepage from "./components/homepage";
 import background from "./assets/background.jpg"
+import DataFetcher from "./components/DataFetcher";
 
 
 function App() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
+    
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
@@ -20,13 +22,9 @@ function App() {
   return (
     <>
     <main>
-    <Navbar/>
-      
-        
-        <Homepage/>
-
-
-      
+    <Navbar/>   
+    <Homepage/>
+    <DataFetcher/>
     <Footer/>
     </main>
     </>

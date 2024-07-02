@@ -1,10 +1,9 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "./navbar";
 import {useState } from "react";
-import Footer from "../components/footer";
+import Footer from "./footer";
 import { ReactTyped } from 'react-typed';
-import ScrollDown from "./scrollDown";
-import background from "../assets/background.jpg"
+import background from "../assets/background.jpg";
 
 const Homepage = () => {
     return (
@@ -23,7 +22,6 @@ const Homepage = () => {
         <h1>Ce qu'on fait :</h1>
         <p>ici un paragraphe d'introduction</p>
     
-    <ScrollDown/>
     </div>
     </>
     )
