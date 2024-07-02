@@ -1,31 +1,31 @@
 // models/User.js
-
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/sequelize');
+// import { sequelize } from "./postgresql";
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/sequelize");
 
 class User extends Model {}
 
-User.init({
+User.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     email: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     password: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     isAdmin: {
-        type: DataTypes.BOOLEAN,
-    }
-}, {
+      type: DataTypes.BOOLEAN,
+    },
+  },
+  {
     sequelize,
-    modelName: 'User'
-
-});
+    modelName: "User",
+  }
+);
 
 module.exports = User;
-
-
