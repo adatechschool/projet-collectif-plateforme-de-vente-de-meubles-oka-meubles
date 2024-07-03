@@ -30,7 +30,7 @@ const DataFetcher = () => {
 
   return (
     <div className='pt-20'>
-      <h1>Carte meuble</h1>
+      <h1>Notre sélection : </h1>
       <ul  className="grid grid-cols-3 gap-2 gap-y-20 flex items-center justify-items-center text-center">
         {data.map((val, id) => (
           <MeubleItem
@@ -38,6 +38,8 @@ const DataFetcher = () => {
           image={val.image}
           name={val.name}
           price={val.price}
+          description={val.description}
+          dimension={val.dimension}
           />
         ))}
       </ul>
