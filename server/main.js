@@ -1,10 +1,11 @@
 // server/index.js
 
 const express = require("express");
+const cors = require('cors');
 const sequelize = require('./config/sequelize');
-const User = require('./models/user.model'); // Adjust the path as necessary
-const Item = require('./models/item.model'); // Adjust the path as necessary
-const Basket = require('./models/basket.model'); // Adjust the path as necessary
+const User = require('./models/user.model');
+const Item = require('./models/item.model'); 
+const Basket = require('./models/basket.model');
 const userRoutes = require('./routes/user.routes');
 const itemRoutes = require('./routes/item.routes');
 const basketRoutes = require('./routes/basket.routes');
@@ -18,6 +19,7 @@ app.get("/api", (req, res) => {
 });
 
 app.use(express.json());
+app.use(cors());
 app.use('/api', itemRoutes);
 app.use('/api', userRoutes);
 app.use('/api', basketRoutes);
