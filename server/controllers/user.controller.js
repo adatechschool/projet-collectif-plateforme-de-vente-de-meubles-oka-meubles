@@ -2,10 +2,9 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user.model");
 
-
+// Create User
 const createUser = async (req, res) => {
     const { email, password, isAdmin } = req.body;
-
 
     if (!email || !password) {
         return res.status(400).json({ error: "Email and password are required" });
@@ -25,7 +24,7 @@ const createUser = async (req, res) => {
             isAdmin,
         });
 
-        // Set session for the newly created user ;)
+        // Set session for the newly created user
         req.session.user = {
             id: newUser.id,
             email: newUser.email,
@@ -49,13 +48,13 @@ const login = async (req, res) => {
         const user = await User.findOne({ where: { email } });
 
         if (!user) {
-            return res.status(404).json({ error: "User not found !" });
+            return res.status(404).json({ error: "User not found" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            return res.status(401).json({ error: "Incorrect password !" });
+            return res.status(401).json({ error: "Incorrect password" });
         }
 
         req.session.user = {
@@ -70,6 +69,7 @@ const login = async (req, res) => {
     }
 };
 
+// Logout User
 const logout = (req, res) => {
     if (req.session.user) {
         req.session.destroy(err => {
@@ -83,6 +83,7 @@ const logout = (req, res) => {
     }
 };
 
+// Check session
 const checkSession = (req, res) => {
     if (req.session.user) {
         res.status(200).json({ user: req.session.user });

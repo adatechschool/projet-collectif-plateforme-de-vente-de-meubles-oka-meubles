@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
 const Formco = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loggedInUser, setLoggedInUser] = useState(null);
     const [error, setError] = useState('');
-
 
     useEffect(() => {
         // Check if user is already logged in when the component appears
