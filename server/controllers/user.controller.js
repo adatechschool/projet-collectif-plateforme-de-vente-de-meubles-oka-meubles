@@ -1,95 +1,100 @@
-// server/controllers/user.controller.js
-
+const bcrypt = require("bcrypt");
 const User = require("../models/user.model");
 
+// Create User
 const createUser = async (req, res) => {
-  const { email, password, isAdmin } = req.body;
+    const { email, password, isAdmin } = req.body;
 
-  try {
-    const existingUser = await User.findOne({ where: { email: email } });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ error: "User with this email already exists" });
+    if (!email || !password) {
+        return res.status(400).json({ error: "Email and password are required" });
     }
 
-    const newUser = await User.create({
-      email,
-      password,
-      isAdmin,
-    });
-
-    res.status(201).json(newUser);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-const getUser = async (req, res) => {
-  const userId = req.body.id;
-  const userEmail = req.body.email;
-  if (userId !== undefined) {
-    // Si c'est pas undefined, on va chercher via l'id
     try {
-      const user = await User.findByPk(userId);
+        const existingUser = await User.findOne({ where: { email } });
+        if (existingUser) {
+            return res.status(400).json({ error: "User with this email already exists" });
+        }
 
-      if (!user) {
-        return res.status(404).json({ error: "user not found ! " });
-      }
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-      res.status(200).json(user);
+        const newUser = await User.create({
+            email,
+            password: hashedPassword,
+            isAdmin,
+        });
+
+        // Set session for the newly created user
+        req.session.user = {
+            id: newUser.id,
+            email: newUser.email,
+            isAdmin: newUser.isAdmin,
+        };
+
+        res.status(201).json({ message: "User created successfully", user: req.session.user });
     } catch (err) {
-      res.status(400).json({ error: err.message });
+        res.status(400).json({ error: err.message });
     }
-  } else if (userEmail !== undefined) {
-    try {
-      const user = await User.findOne({ where: { email: userEmail } });
-
-      if (!user) {
-        return res.status(404).json({ error: "user not found ! " });
-      }
-
-      res.status(200).json(user);
-    } catch (err) {
-      res.status(400).json({ error: err.message });
-    } // Si c'est pas undefined, on va chercher via l'email
-  }
-  res.status(200).json("ERROR");
 };
 
-// const getUserById = async (req, res) => {
-//   const usersId = req.params.id;
-//   try {
-//     const user = await User.findByPk(usersId);
+// Login User
+const login = async (req, res) => {
+    const { email, password } = req.body;
 
-//     if (!user) {
-//       return res.status(404).json({ error: "user not found ! " });
-//     }
+    if (!email || !password) {
+        return res.status(400).json({ error: "Email and password are required" });
+    }
 
-//     res.status(200).json(user);
-//   } catch (err) {
-//     res.status(400).json({ error: err.message });
-//   }
-// };
+    try {
+        const user = await User.findOne({ where: { email } });
 
-// const getUserByEmail = async (req, res) => {
-//   const usersEmail = req.params.email;
-//   try {
-//     const user = await User.findOne({ usersEmail });
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
 
-//     if (!user) {
-//       return res.status(404).json({ error: "user not found ! " });
-//     }
+        const isMatch = await bcrypt.compare(password, user.password);
 
-//     res.status(200).json(user);
-//   } catch (err) {
-//     res.status(400).json({ error: err.message });
-//   }
-// };
+        if (!isMatch) {
+            return res.status(401).json({ error: "Incorrect password" });
+        }
+
+        req.session.user = {
+            id: user.id,
+            email: user.email,
+            isAdmin: user.isAdmin,
+        };
+
+        res.status(200).json({ message: "Login successful", user: req.session.user });
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+// Logout User
+const logout = (req, res) => {
+    if (req.session.user) {
+        req.session.destroy(err => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            res.status(200).json({ message: "Logout successful" });
+        });
+    } else {
+        res.status(401).json({ error: "You are not logged in" });
+    }
+};
+
+// Check session
+const checkSession = (req, res) => {
+    if (req.session.user) {
+        res.status(200).json({ user: req.session.user });
+    } else {
+        res.status(401).json({ error: "Not authenticated" });
+    }
+};
 
 module.exports = {
-  createUser,
-  // getUserByEmail,
-  // getUserById,
-  getUser,
+    createUser,
+    login,
+    logout,
+    checkSession,
 };

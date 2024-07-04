@@ -1,12 +1,18 @@
-// server/routes/user.routes.js
-
 const express = require("express");
 const router = express.Router();
+
 const UserController = require("../controllers/user.controller");
 
-//the route for vreating a new user
+// Route for creating a new user
 router.post("/user", UserController.createUser);
-//router.get("/user/:email", UserController.getUserByEmail);
-//router.get("/user/:id", UserController.getUserById);
-router.post("/user/connect", UserController.getUser);
+
+// Route for logging in
+router.post("/user/connect", UserController.login);
+
+// Route for logging out
+router.post("/user/logout", UserController.logout);
+
+// Route for checking session
+router.get("/user/session", UserController.checkSession);
+
 module.exports = router;
