@@ -1,4 +1,3 @@
-
 const bcrypt = require("bcrypt");
 const User = require("../models/user.model");
 
@@ -32,11 +31,12 @@ const createUser = async (req, res) => {
         };
 
         res.status(201).json({ message: "User created successfully", user: req.session.user });
-
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
 };
+
+// Login User
 const login = async (req, res) => {
     const { email, password } = req.body;
 

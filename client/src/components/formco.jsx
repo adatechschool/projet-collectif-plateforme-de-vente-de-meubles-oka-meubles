@@ -8,7 +8,7 @@ const Formco = (props) => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        // Check if user is already logged in when the component appears
+        // Check if user is already logged in when the component mounts
         const checkLoggedIn = async () => {
             try {
                 const response = await fetch('/api/user/session');
